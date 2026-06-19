@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>ESP8266 LED Control</title>
+        <style>
+        .container {
+         height: 200px;
+         position: relative;
+         }
+
+        .row {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+      .column{
+       float:left;
+       width:40%;
+      }
+     </style>
+
+	
+	</head>
+	
+	<body>
+
+		<center>
+			<div style= "font-size:50px; color:blue;">Home Automation<br>
+				<div style= "font-size:25px;color:blue;">by</div> 
+			</div>
+		</center>
+		
+		<br><br><br>
+                <center>
+                <div class="container">
+                <div class="row">
+                     <div class="column">
+				<div style= "font-size:70px; color:orange;">TECH</div>
+                     </div>
+                     <div class="column">
+				<div style= "font-size:70px; color:blue;"><i>CRYPTORS</i></div>
+                     </div>
+                </div>
+                </div>
+                <h3 style="color:black; margin-top:-70px;font-family:Segoe UI Light;font-size:35px">Decrypting Technology For You </h3>	
+                </center>
+			
+		
+		<br>
+		<br>
+                <br>
+		<center>
+			<h1 style="color:black;">Buttons for controlling devices </h1>
+			<button id="09" class="led" style="background-color:#0290D1; border-radius:10px; color:white;height: 75px; width: 125px ; font-size:25px;"><font face="Times New Roman">LED</font></button>&nbsp&nbsp&nbsp <!-- button for pin 9 -->
+			<button id="10" class="led" style="background-color:#0290D1; border-radius:10px;color:white;height: 75px; width: 125px ; font-size:25px;"><font face="Times New Roman">BUZZER</font></button>&nbsp&nbsp&nbsp <!-- button for pin 10 -->
+			<button id="11" class="led" style="background-color:#0290D1; border-radius:10px;color:white;height: 75px; width: 125px; font-size:25px;"><font face="Times New Roman">FMOTOR</font></button>&nbsp&nbsp&nbsp <!-- button for pin 11 -->
+			<button id="12" class="led" style="background-color:#0290D1; border-radius:10px;color:white;height: 75px; width: 125px; font-size:25px;"><font face="Times New Roman">BMOTOR</font></button>&nbsp&nbsp&nbsp <!-- button for pin 12 -->
+			<button id="13" class="led"style="background-color:#E60B0B;border-radius:10px;color:white; height: 75px; width: 125px; font-size:25px;"><font face="Times New Roman">STOP</font></button> <!-- button for pin 13 -->
+		</center>
+
+
+		<script src="jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".led").click(function(){
+					var p = $(this).attr('id'); // get id value (i.e. pin13, pin12, or pin11)
+					// send HTTP GET request to the IP address with the parameter "pin" and value "p", then execute the function
+					$.get("http://192.168.4.1:80/", {pin:p}); // execute get request
+				});
+			});
+		</script>
+	</body>
+</html>

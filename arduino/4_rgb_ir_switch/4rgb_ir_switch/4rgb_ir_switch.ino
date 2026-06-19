@@ -1,10 +1,11 @@
 int prevIR =1;
-
 int color=0;
 // color 0 means off
 // color 1 means red
 // color 2 means green
 // color 3 means blue
+
+//IR gives 0 when object detected,   1 when no object
 
 void setup() {
   // put your setup code here, to run once:
@@ -45,7 +46,7 @@ void loop() {
       digitalWrite(6,LOW);
       digitalWrite(7,LOW);
     }
-    else if (color == 0){
+    else if (color == 0){ //led off
       digitalWrite(6,LOW);
       digitalWrite(7,LOW);
       digitalWrite(8,LOW);

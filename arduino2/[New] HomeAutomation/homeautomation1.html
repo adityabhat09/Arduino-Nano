@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>ESP8266 LED Control</title>
+	</head>
+	<body>
+	
+	<!-- in the <button> tags below the ID attribute is the value sent to the arduino -->
+        <style>
+     
+          img{
+               display:block;
+               margin-left:auto;
+               margin-right:auto;
+    
+}
+  
+        </style>
+        <center><div style= "font-size:50px; color:blue;">Home Automation
+         <div style= "font-size:25px;color:blue;">by</div> 
+        </div>
+        </center>
+        
+        <img src ="techcryptors.png" style="width:25%;">
+        <center>
+        <h1 style="color:black;">Buttons for controlling devices </h1>
+        
+        <button id="09" class="led" style="background-color:#0290D1; border-radius:10px; color:white;height: 75px; width: 125px ; font-size:25px;"><font face="Times New Roman">LED</font></button>&nbsp&nbsp&nbsp <!-- button for pin 9 -->
+	<button id="10" class="led" style="background-color:#0290D1; border-radius:10px;color:white;height: 75px; width: 125px ; font-size:25px;"><font face="Times New Roman">BUZZER</font></button>&nbsp&nbsp&nbsp <!-- button for pin 10 -->
+	<button id="11" class="led" style="background-color:#0290D1; border-radius:10px;color:white;height: 75px; width: 125px; font-size:25px;"><font face="Times New Roman">FMOTOR</font></button>&nbsp&nbsp&nbsp <!-- button for pin 11 -->
+	<button id="12" class="led" style="background-color:#0290D1; border-radius:10px;color:white;height: 75px; width: 125px; font-size:25px;"><font face="Times New Roman">BMOTOR</font></button>&nbsp&nbsp&nbsp <!-- button for pin 12 -->
+	<button id="13" class="led"style="background-color:#E60B0B;border-radius:10px;color:white; height: 75px; width: 125px; font-size:25px;"><font face="Times New Roman">STOP</font></button> <!-- button for pin 13 -->
+        </center>
+        
+        		
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".led").click(function(){
+				var p = $(this).attr('id'); // get id value (i.e. pin13, pin12, or pin11)
+				// send HTTP GET request to the IP address with the parameter "pin" and value "p", then execute the function
+				$.get("http://192.168.4.1:80/", {pin:p}); // execute get request
+			});
+		});
+	</script>
+	</body>
+</html>
