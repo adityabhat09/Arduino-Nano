@@ -1,3 +1,6 @@
+// write home automation code. but were only controlling one sensor  -   led
+
+
 #include "SoftwareSerial.h"
  
 #define DEBUG true
@@ -57,36 +60,20 @@ void loop()
      
      switch (pinNumber)
       {
-	case 9://LED
+	case 9://LED                              //case no can be any no you want to
             digitalWrite(4,HIGH);
              digitalWrite(13,HIGH);
           
              Serial.println("LED IS ON");
              break;
-	case 10://BUzzer
-             digitalWrite(5,HIGH);
-            
-             Serial.println("BUZZER IS ON");
-		break;
-        case 11://forward Motor
-             digitalWrite(6,HIGH);
-             digitalWrite(7,LOW);
-   
-             Serial.println("Forward");
-		break;
-       case 12://backward Motor
-           
-             digitalWrite(6,LOW);
-             digitalWrite(7,HIGH);
-             Serial.println("Backward");
-		break;
-       case 13://stop
+	
+  case 13://stop
             digitalWrite(13,LOW);
             digitalWrite(4,LOW);
             digitalWrite(5,LOW);
-             digitalWrite(6,LOW);
-             digitalWrite(7,LOW);
-             Serial.println("Stop");
+            digitalWrite(6,LOW);
+            digitalWrite(7,LOW);
+            Serial.println("Stop");
 		break;
 	default:
 		break;
